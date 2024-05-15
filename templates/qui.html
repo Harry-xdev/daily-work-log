@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta http-equiv="refresh" content="10"> -->
+	<title>New page</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+	<!-- <link rel="stylesheet" href="styles.css"> -->
+</head>
+
+<body>
+	<div class="body-container">
+		<h3 style="font-size: 20px; color: rgb(209, 88, 108); font-family: monospace;">Hello! Tap your name!</h3>
+		<p style="color: rgb(255, 0, 149); font-weight: bold;" >Kết nối wifi QA_4.5G trước khi sử dụng</p>
+		<p style="color: red; font-weight: bold;" >Lưu ý! Ae check tăng ca từ 19:05 - 19:15 (giờ về sẽ là 19:30). Check tăng ca sau 19:15 cúp điện sẽ không chấm được.</p>
+		<div class="log-display">
+			<ul id="data-list">
+			</ul>
+		</div>
+
+		<!-- <button><a style="text-decoration: none" href="https://working-checkout-8e5c8145a6e5.herokuapp.com/download-history-csv">Download CSV</a></button> -->
+
+		<!-- <button id="btn_1" class="btn" onclick="sendName('btn_1')">LÊ PHƯƠNG</button><br>
+		<button id="btn_2" class="btn" onclick="sendName('btn_2')">TRƯƠNG TƯ XUÂN</button><br>
+		<button id="btn_3" class="btn" onclick="sendName('btn_3')">TRƯƠNG THÀNH TAM</button><br>
+		<button id="btn_4" class="btn" onclick="sendName('btn_4')">LÊ THANH TUẤN</button><br>
+		<button id="btn_5" class="btn" onclick="sendName('btn_5')">PHẠM THỊ PHƯƠNG</button><br>
+		<button id="btn_6" class="btn" onclick="sendName('btn_6')">NGUYỄN HOÀNG VIỆT</button><br>
+		<button id="btn_7" class="btn" onclick="sendName('btn_7')">NGUYỄN THỊ HỒNG YẾN</button><br>
+		<button id="btn_8" class="btn" onclick="sendName('btn_8')">BÙI HỒNG PHÚC</button><br>
+		<button id="btn_9" class="btn" onclick="sendName('btn_9')">TRƯƠNG VĂN MINH</button><br>
+		<button id="btn_10" class="btn" onclick="sendName('btn_10')">NGUYỄN QUANG QUÍ</button><br>
+		<button id="btn_11" class="btn" onclick="sendName('btn_11')">NGUYỄN THỊ DIỄM MY</button><br>
+		<button id="btn_12" class="btn" onclick="sendName('btn_12')">LÊ MINH THẮNG</button><br>
+		<button id="btn_13" class="btn" onclick="sendName('btn_13')">LÊ QUỐC TRUNG</button><br>
+		<button id="btn_14" class="btn" onclick="sendName('btn_14')">NGUYỄN TUẤN ANH</button><br>
+		<button id="btn_15" class="btn" onclick="sendName('btn_15')">TRẦN VĂN LƯU</button><br>
+		<button id="btn_16" class="btn" onclick="sendName('btn_16')">LÊ HUỲNH ANH KHOA</button><br>
+		<button id="btn_17" class="btn" onclick="sendName('btn_17')">NGUYỄN MAI PHƯƠNG</button><br>
+		<button id="btn_18" class="btn" onclick="sendName('btn_18')">NGUYỄN PHẠM NGỌC TUYẾT</button><br> -->
+
+		<button id="download" onclick="handleDownloadbtn()">Download Excel Report</button>
+		<button id="btn_10" class="btn" onclick="sendName('btn_10')">
+			<p style="color: grey; font-size: 14px;">OT tap here!</p>
+			NGUYỄN QUANG QUÍ
+		</button>
+
+	</div>
+
+
+
+</body>
+
+</html>
+
+<script>
+	const testLink = 'http://127.0.0.1:5000'
+	const productionLink = 'https://working-checkout-8e5c8145a6e5.herokuapp.com'
+
+	var buttons = document.getElementsByClassName("btn");
+	function handClick(buttonId) {
+		let buttonText = this.textContent;
+		const buttonDiv = document.getElementById(buttonId);
+		// buttonDiv.style.backgroundColor = '#003039'
+		buttonDiv.style.backgroundColor = 'gray';
+		buttonDiv.disabled = true;
+		// alert("Check-in(out) successful.");
+
+	};
+
+	function sendName(buttonId) {
+		const button = document.getElementById(buttonId);
+		console.log(buttonId);
+		const content = button.innerHTML;
+		const payload = {
+			buttonId: buttonId,
+			content: content,
+		};
+		fetch('/button', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(payload),
+		}).then(response => {
+			if (response.ok) {
+				return response.text();
+			} else {
+				Error('Request failed.')
+			}
+		});
+		handClick(buttonId);
+		updateList();
+	};
+
+	function handleDownloadbtn() {
+		window.location.href = "http://192.168.0.115:5000/download-history";
+		// alert("Excel downloaded.");
+		btn = document.getElementById('download');
+		btn.style.backgroundColor = 'grey';
+		btn.disabled = true;
+	};
+
+	const dataListElement = document.getElementById('data-list');
+	fetch('http://192.168.0.115:5000/api/data')
+		.then(response => response.json())
+		.then(data => {
+			// Populate the list with data
+			data.forEach(item => {
+				const liElement = document.createElement('li');
+				liElement.textContent = item.date + ' | ' + '[' + item.start_time + ']' + '-' + '[' + item.leaving_time + ']' + ': ' + item.staff_name;
+				dataListElement.appendChild(liElement);
+			});
+			console.log(data)
+		})
+		.catch(error => {
+			console.log('Error:', error);
+		});
+		
+	function updateList() {
+		fetch('http://192.168.0.115:5000/api/data')
+			.then(response => response.json())
+			.then(data => {
+				// Populate the list with data
+				const listContainer = document.getElementById('data-list');
+				listContainer.innerHTML = '';
+				data.forEach(item => {
+					const li = document.createElement('li');
+					li.textContent = item.date + ' | ' + '[' + item.start_time + ']' + '-' + '[' + item.leaving_time + ']' + ': ' + item.staff_name;
+					listContainer.appendChild(li);
+      			});
+
+				console.log(data)
+			})
+			.catch(error => {
+				console.log('Error:', error);
+			});
+	};
+
+
+</script>
