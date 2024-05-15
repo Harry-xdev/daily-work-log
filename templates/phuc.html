@@ -11,9 +11,10 @@
 
 <body>
 	<div class="body-container">
-		<h3 style="font-size: 20px; color: rgb(209, 88, 108); font-family: monospace;">Hello! Tap your name!</h3>
-		<p style="color: rgb(255, 0, 149); font-weight: bold;" >Kết nối wifi QA_4.5G trước khi sử dụng</p>
-		<p style="color: red; font-weight: bold;" >Lưu ý! Ae check tăng ca từ 19:05 - 19:15 (giờ về sẽ là 19:30). Check tăng ca sau 19:15 cúp điện sẽ không chấm được.</p>
+
+		<p style="color: rgb(255, 0, 149); font-weight: bold;">Kết nối wifi QA_4.5G trước khi sử dụng</p>
+		<p style="color: red; font-weight: bold;">Lưu ý! Ae check tăng ca từ 19:05 - 19:15 (giờ về sẽ là 19:30).
+			Check tăng ca sau 19:15 cúp điện sẽ không chấm được.</p>
 		<div class="log-display">
 			<ul id="data-list">
 			</ul>
@@ -28,7 +29,7 @@
 		<button id="btn_5" class="btn" onclick="sendName('btn_5')">PHẠM THỊ PHƯƠNG</button><br>
 		<button id="btn_6" class="btn" onclick="sendName('btn_6')">NGUYỄN HOÀNG VIỆT</button><br>
 		<button id="btn_7" class="btn" onclick="sendName('btn_7')">NGUYỄN THỊ HỒNG YẾN</button><br>
-		<button id="btn_8" class="btn" onclick="sendName('btn_8')">BÙI HỒNG PHÚC</button><br>
+		<button id="btn_8" class="btn" onclick="sendName('btn_8')">BÙI ĐÌNH HỒNG PHÚC</button><br>
 		<button id="btn_9" class="btn" onclick="sendName('btn_9')">TRƯƠNG VĂN MINH</button><br>
 		<button id="btn_10" class="btn" onclick="sendName('btn_10')">NGUYỄN QUANG QUÍ</button><br>
 		<button id="btn_11" class="btn" onclick="sendName('btn_11')">NGUYỄN THỊ DIỄM MY</button><br>
@@ -41,10 +42,17 @@
 		<button id="btn_18" class="btn" onclick="sendName('btn_18')">NGUYỄN PHẠM NGỌC TUYẾT</button><br> -->
 
 		<button id="download" onclick="handleDownloadbtn()">Download Excel Report</button>
+
+
+		<button id="anh" >Tăng ca tháng này</button>
+		<button id="anh" >Tăng ca tháng trước</button>
 		<button id="btn_8" class="btn" onclick="sendName('btn_8')">
 			<p style="color: grey; font-size: 14px;">OT tap here!</p>
-			BÙI HỒNG PHÚC
+			BÙI ĐÌNH HỒNG PHÚC
 		</button>
+
+
+
 
 	</div>
 
@@ -55,8 +63,6 @@
 </html>
 
 <script>
-	const testLink = 'http://127.0.0.1:5000'
-	const productionLink = 'https://working-checkout-8e5c8145a6e5.herokuapp.com'
 
 	var buttons = document.getElementsByClassName("btn");
 	function handClick(buttonId) {
@@ -112,12 +118,12 @@
 				liElement.textContent = item.date + ' | ' + '[' + item.start_time + ']' + '-' + '[' + item.leaving_time + ']' + ': ' + item.staff_name;
 				dataListElement.appendChild(liElement);
 			});
-			console.log(data)
+			console.log(data);
 		})
 		.catch(error => {
 			console.log('Error:', error);
 		});
-		
+
 	function updateList() {
 		fetch('http://192.168.0.115:5000/api/data')
 			.then(response => response.json())
@@ -129,7 +135,7 @@
 					const li = document.createElement('li');
 					li.textContent = item.date + ' | ' + '[' + item.start_time + ']' + '-' + '[' + item.leaving_time + ']' + ': ' + item.staff_name;
 					listContainer.appendChild(li);
-      			});
+				});
 
 				console.log(data)
 			})
@@ -137,6 +143,21 @@
 				console.log('Error:', error);
 			});
 	};
-
+	document.addEventListener("DOMContentLoaded", function() {
+		var button = document.getElementById("anh");
+		button.addEventListener("click", function() {
+			// window.location.href = "http://192.168.0.115:5000//calendar";
+			window.location.href = "http://192.168.0.115:5000//calendar";
+		});
+	
+	});
+	document.addEventListener("DOMContentLoaded", function() {
+		var button = document.getElementById("pre");
+		button.addEventListener("click", function() {
+			// window.location.href = "http://192.168.0.115:5000//calendar";
+			window.location.href = "http://192.168.0.115:5000//pre-calendar";
+		});
+	
+	});
 
 </script>

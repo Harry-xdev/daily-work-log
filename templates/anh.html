@@ -28,7 +28,7 @@
 		<button id="btn_5" class="btn" onclick="sendName('btn_5')">PHẠM THỊ PHƯƠNG</button><br>
 		<button id="btn_6" class="btn" onclick="sendName('btn_6')">NGUYỄN HOÀNG VIỆT</button><br>
 		<button id="btn_7" class="btn" onclick="sendName('btn_7')">NGUYỄN THỊ HỒNG YẾN</button><br>
-		<button id="btn_8" class="btn" onclick="sendName('btn_8')">BÙI HỒNG PHÚC</button><br>
+		<button id="btn_8" class="btn" onclick="sendName('btn_8')">BÙI ĐÌNH HỒNG PHÚC</button><br>
 		<button id="btn_9" class="btn" onclick="sendName('btn_9')">TRƯƠNG VĂN MINH</button><br>
 		<button id="btn_10" class="btn" onclick="sendName('btn_10')">NGUYỄN QUANG QUÍ</button><br>
 		<button id="btn_11" class="btn" onclick="sendName('btn_11')">NGUYỄN THỊ DIỄM MY</button><br>
@@ -43,7 +43,8 @@
 		<button id="download" onclick="handleDownloadbtn()">Download Excel Report</button>
 
 
-		<button id="anh" >Xem lịch sử tăng ca</button>
+		<button id="anh" >Tăng ca tháng này</button>
+		<button id="pre" >Tăng ca tháng trước</button>
 		<button id="btn_14" class="btn" onclick="sendName('btn_14')">
 			<p style="color: grey; font-size: 14px;">OT tap here!</p>
 			NGUYỄN TUẤN ANH
@@ -142,12 +143,21 @@
 			});
 	};
 	document.addEventListener("DOMContentLoaded", function() {
-    var button = document.getElementById("anh");
-    button.addEventListener("click", function() {
-        // window.location.href = "http://192.168.0.115:5000//calendar";
-        window.location.href = "http://192.168.0.115:5000//calendar";
-    });
-});
+		var button = document.getElementById("anh");
+		button.addEventListener("click", function() {
+			// window.location.href = "http://192.168.0.115:5000//calendar";
+			window.location.href = "http://192.168.0.115:5000//calendar";
+		});
+	
+	});
+	document.addEventListener("DOMContentLoaded", function() {
+		var button = document.getElementById("pre");
+		button.addEventListener("click", function() {
+			// window.location.href = "http://192.168.0.115:5000//calendar";
+			window.location.href = "http://192.168.0.115:5000//pre-calendar";
+		});
+	
+	});
 
 
 </script>

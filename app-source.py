@@ -115,6 +115,17 @@ def calendar():
 	print(json_output)
 	return render_template("calendar.html")
 
+@app.route("/pre-calendar")
+def pre_calendar():
+	df = pd.read_csv('history.csv')
+	json_data = df.to_json(orient='records', force_ascii=False)
+	python_objects = json.loads(json_data)
+	json_output = json.dumps(python_objects, ensure_ascii=False)
+	print(json_output)
+	return render_template("pre-calendar.html")
+
+
+
 @app.route("/viet")
 def viet():
 	return render_template("viet.html")
