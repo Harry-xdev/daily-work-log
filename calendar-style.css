@@ -16,6 +16,7 @@
     
     .day {
         display: flex;
+        flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
         border: 1px solid black;
@@ -49,7 +50,37 @@
         flex-wrap: wrap;
         color: red;
     
+    
     }
+    
+    #weekday-container {
+        display: flex;
+    }
+    .week {
+        width: 46px;
+        margin-right: 2px;
+        margin-left: 2px;
+        font-size: 18px;
+        color: rgb(23, 139, 143);
+    
+    }
+    #sun {
+        color: rgb(255, 0, 0)
+    }
+    
+    .dateDisplay {
+        /* border: 1px solid black; */
+        width: 46px;
+        height: 13px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: rgb(27, 163, 187);
+        font-size: 13px;
+        margin-bottom: 5px;
+    
+    }
+    
     #month {
         font-size: 30px;
         font-weight: 800;
@@ -82,8 +113,14 @@
         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     }
     
-
+    #staff {
+        color:rgb(243, 79, 106);
+        font-weight: 800;
+        margin-bottom: 20px;
+    }
 }
+    
+
 
 /* ----------------------------------------------------------------
 ----------------------------------------------------------------
@@ -103,6 +140,7 @@
 
 .day {
     display: flex;
+    flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     border: 1px solid black;
@@ -138,6 +176,35 @@
 
 
 }
+
+#weekday-container {
+    display: flex;
+}
+.week {
+    width: 46px;
+    margin-right: 2px;
+    margin-left: 2px;
+    font-size: 18px;
+    color: rgb(23, 139, 143);
+
+}
+#sun {
+    color: rgb(255, 0, 0)
+}
+
+.dateDisplay {
+    /* border: 1px solid black; */
+    width: 46px;
+    height: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(27, 163, 187);
+    font-size: 13px;
+    margin-bottom: 5px;
+
+}
+
 #month {
     font-size: 30px;
     font-weight: 800;
@@ -168,4 +235,10 @@
     color: rgb(253, 253, 253);
     font-weight:700;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#staff {
+    color:rgb(243, 79, 106);
+    font-weight: 800;
+    margin-bottom: 20px;
 }
