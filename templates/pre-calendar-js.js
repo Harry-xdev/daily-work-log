@@ -82,7 +82,9 @@ buttons.forEach(button => {
                 let idx = dateNumber[i];
                 if (idx >= 0 && idx < calendarEmptySlot.length) {
                 
-                    calendarEmptySlot[idx - 1 + (firstDateOfMonth - (firstDateOfMonth - 1) - 1)] = overTime[i];
+                    // calendarEmptySlot[idx - 1 + (firstDateOfMonth - (firstDateOfMonth - 1) - 1)] = overTime[i];
+                    calendarEmptySlot[idx + firstDateOfMonth - (firstDateOfMonth - 1)-2] = overTime[i];
+                    console.log(`index: ${idx}`);
                     // console.log(idx + firstDateOfMonth - firstDateOfMonth - 1);
                 };
             };

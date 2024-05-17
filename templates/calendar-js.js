@@ -100,6 +100,7 @@ buttons.forEach(button => {
                 let idx = dateNumber[i];
                 if (idx >= 0 && idx < calendarEmptySlot.length) {
                     calendarEmptySlot[idx + firstDateOfMonth - (firstDateOfMonth - 1)] = overTime[i];
+                    // calendarEmptySlot[firstDateOfMonth - 1] = overTime[i];
 
                 };
             };
