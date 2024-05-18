@@ -1,7 +1,9 @@
 import pandas as pd
 
-def read_log_data():
-    df = pd.read_csv('history.csv')
-    print(df)
+data = pd.read_csv('history.csv')
+print(data)
 
-read_log_data()
+data = data.assign(btn_id = 'id')
+print(data)
+
+data.to_csv('history.csv', index=False)

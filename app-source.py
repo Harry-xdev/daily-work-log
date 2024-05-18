@@ -41,6 +41,7 @@ def get_date():
 	return curr_date
 
 
+
 def get_time():
 	# Specify the desired time zone
 	# Replace with your desired time zone
@@ -62,7 +63,7 @@ def get_time_2():
 	time = current_time.strftime('%H:%M')
 	if 5 <= minute and minute < 45:
 		minute = 30
-	elif minute > 45:
+	elif minute >= 45:
 		hour = hour + 1
 		minute = 0
 	elif minute < 15:
@@ -230,9 +231,19 @@ def button_click():
 @app.route("/button", methods=["POST"])
 def handle_button():
 	button_id = request.json['buttonId']
-	person_name = request.json['content']
+	# person_name = request.json['content']
 	person_date = get_date()
 	person_time = get_time_2()
+	date_obj = date.today()
+	curr_date_str = date_obj.strftime("%Y-%m-%d")
+
+	#Check is staff name existed in data of current day, fix multiple check out log
+	df = pd.read_csv('history.csv')
+	curr_date_df = df[df['date'] == curr_date_str]
+	remove_repeat = curr_date_df[(curr_date_df['btn_id'] != button_id)]
+	clear_date_df = df[df['date'] != curr_date_str]
+	combined_df = pd.concat([clear_date_df, remove_repeat], ignore_index=True)
+	combined_df.to_csv('history.csv', index=False)
 
 	def write_staff_data_to_csv():
 		index = None
@@ -252,7 +263,7 @@ def handle_button():
 			writer = csv.writer(file)
 			writer.writerow([
 			 staffs_lst_2[index][1], staffs_lst_2[index][2], start_time, person_time,
-			 staffs_lst_2[index][3], staffs_lst_2[index][4], person_date
+			 staffs_lst_2[index][3], staffs_lst_2[index][4], person_date, staffs_lst_2[index][0]
 			])
 
 		filename = "history.csv"
