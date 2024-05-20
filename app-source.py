@@ -109,23 +109,17 @@ def index():
 
 @app.route("/calendar")
 def calendar():
-	df = pd.read_csv('history.csv')
-	json_data = df.to_json(orient='records', force_ascii=False)
-	python_objects = json.loads(json_data)
-	json_output = json.dumps(python_objects, ensure_ascii=False)
-	print(json_output)
+	# df = pd.read_csv('history.csv')
+	# json_data = df.to_json(orient='records', force_ascii=False)
+	# python_objects = json.loads(json_data)
+	# json_output = json.dumps(python_objects, ensure_ascii=False)
+	# print(json_output)
 	return render_template("calendar.html")
 
 @app.route("/pre-calendar")
 def pre_calendar():
-	df = pd.read_csv('history.csv')
-	json_data = df.to_json(orient='records', force_ascii=False)
-	python_objects = json.loads(json_data)
-	json_output = json.dumps(python_objects, ensure_ascii=False)
-	print(json_output)
+
 	return render_template("pre-calendar.html")
-
-
 
 @app.route("/viet")
 def viet():
@@ -237,7 +231,7 @@ def handle_button():
 	date_obj = date.today()
 	curr_date_str = date_obj.strftime("%Y-%m-%d")
 
-	#Check is staff name existed in data of current day, fix multiple check out log
+	#Check staff name existed in data of current day, prevent multiple submit
 	df = pd.read_csv('history.csv')
 	curr_date_df = df[df['date'] == curr_date_str]
 	remove_repeat = curr_date_df[(curr_date_df['btn_id'] != button_id)]

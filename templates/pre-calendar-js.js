@@ -9,6 +9,10 @@ if (monthGlobal < 10) {
 };
 
 
+let lengthOfDay = new Date(year, monthGlobal, 0).getDate();
+console.log(lengthOfDay);
+
+
 document.addEventListener("DOMContentLoaded", function () {
     let myParagraph = document.getElementById("month");
     myParagraph.textContent = monthGlobal;
@@ -76,7 +80,7 @@ buttons.forEach(button => {
             // });
 
 
-            let calendarEmptySlot = new Array(31 + (firstDateOfMonth-1)).fill('');
+            let calendarEmptySlot = new Array(lengthOfDay + (firstDateOfMonth-1)).fill('');
 
             for (let i = 0; i < dateNumber.length; i++) {
                 let idx = dateNumber[i];
