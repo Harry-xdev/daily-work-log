@@ -10,7 +10,8 @@ if (monthGlobal < 10) {
 };
 
 let lengthOfDay = new Date(year, monthGlobal, 0).getDate();
-console.log(lengthOfDay);
+// console.log(lengthOfDay);
+// console.log(date);
 
 document.addEventListener("DOMContentLoaded", function () {
     let myParagraph = document.getElementById("month");
@@ -129,6 +130,7 @@ buttons.forEach(button => {
             let startIndex = firstDateOfMonth - 1; // Index of the 3rd div (0-based)
             let endIndex = 35; // Index of the 8th div (inclusive)
             dateDivContainers.forEach((container, index) => {
+
                 const dateDiv = document.createElement('div');
 
                 if (index >= startIndex && index < endIndex) {

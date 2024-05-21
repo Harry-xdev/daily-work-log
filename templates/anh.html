@@ -73,6 +73,7 @@
 		// alert("Check-in(out) successful.");
 
 	};
+	
 
 	function sendName(buttonId) {
 		const button = document.getElementById(buttonId);
@@ -97,6 +98,9 @@
 		});
 		handClick(buttonId);
 		updateList();
+		setTimeout(function() {
+			location.reload();
+		}, 800);
 	};
 
 	function handleDownloadbtn() {
