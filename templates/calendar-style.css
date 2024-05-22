@@ -1,5 +1,13 @@
 @media (max-width: 600px) {
-
+    @font-face {
+        font-family: 'RobotoFont';
+        src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
+    
+    }
+    
+    body {
+        font-family: 'RobotoFont', sans-serif ;
+    }
     /* Styles for mobile screens */
     .body-container {
         display: flex;
@@ -9,8 +17,8 @@
         width: 370px;
         margin: 0;
         padding-top: 0px;
-        /* justify-content: center; */
-        /* align-items: center; */
+        justify-content: center;
+        align-items: center;
     
     }
     #day-container1 {
@@ -22,13 +30,14 @@
         flex-direction: column-reverse;
         justify-content: center;
         align-items: center;
-        border-right: 1px solid black;
-        border-bottom: 1px solid black;
+        border-right: 1px solid rgb(41, 41, 41);
+        border-bottom: 1px solid rgb(41, 41, 41);
+        /* font-weight: bold; */
     
         /* background-color: brown; */
         width: 45px;
         height: 40px;
-        /* border-radius: 8px; */
+        border-radius: 5px;
         margin: 1px;
     
     
@@ -102,7 +111,6 @@
         font-weight: 800;
         width: 350px;
         font-size: 35px;    
-        font-family: Georgia, 'Times New Roman', Times, serif 'Times New Roman';
         
     
     }
@@ -128,12 +136,11 @@
         width: 85px;
         margin-right: 2px;
         margin-bottom: 2px;
-        height: 25px;
+        height: 35px;
         /* border: none; */
         background-color: rgb(238, 165, 177);
         color: rgb(253, 253, 253);
         font-weight: 700;
-        font-family:'Times New Roman', Times, serif 'Times new roman';
     }
     
     #staff {
@@ -156,6 +163,17 @@
 /* ----------------------------------------------------------------
 ----------------------------------------------------------------
 ---------------------------------------------------------------- */
+
+@font-face {
+    font-family: 'RobotoFont';
+    src: url('assets/fonts/Roboto-Regular.ttf') format('truetype');
+
+}
+
+body {
+    font-family: 'RobotoFont', sans-serif ;
+}
+
 .body-container {
     display: flex;
     flex-direction: column;
@@ -164,8 +182,8 @@
     width: 370px;
     margin: 0;
     padding-top: 0px;
-    /* justify-content: center; */
-    /* align-items: center; */
+    justify-content: center;
+    align-items: center;
 
 }
 #day-container1 {
@@ -177,13 +195,14 @@
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid black;
-    border-bottom: 1px solid black;
+    border-right: 1px solid rgb(41, 41, 41);
+    border-bottom: 1px solid rgb(41, 41, 41);
+    /* font-weight: bold; */
 
     /* background-color: brown; */
     width: 45px;
     height: 40px;
-    /* border-radius: 8px; */
+    border-radius: 5px;
     margin: 1px;
 
 
@@ -209,6 +228,7 @@
     display: flex;
     flex-wrap: wrap;
     color: red;
+
 
 
 }
@@ -257,7 +277,6 @@
     font-weight: 800;
     width: 350px;
     font-size: 35px;    
-    font-family: Georgia, 'Times New Roman', Times, serif 'Times New Roman';
     
 
 }
@@ -283,16 +302,15 @@
     width: 85px;
     margin-right: 2px;
     margin-bottom: 2px;
-    height: 25px;
+    height: 35px;
     /* border: none; */
     background-color: rgb(238, 165, 177);
     color: rgb(253, 253, 253);
     font-weight: 700;
-    font-family:'Times New Roman', Times, serif 'Times new roman';
 }
 
 #staff {
-    color:rgb(238, 165, 177);
+    color:rgb(236, 63, 92);
     font-weight: 900;
     margin-bottom: 10px;
     margin-top: 10px;
