@@ -12,8 +12,8 @@
 <body>
 	<div class="body-container">
 		
-		<p style="color: rgb(255, 0, 149); font-weight: bold;" >Kết nối wifi QA_4.5G trước khi sử dụng</p>
-		<p style="color: red; font-weight: bold;" >Lưu ý! Ae check tăng ca từ 19:05 - 19:15 (giờ về sẽ là 19:30). Check tăng ca sau 19:15 cúp điện sẽ không chấm được.</p>
+		<p class="instruction" >Kết nối wifi QA_4.5G trước khi sử dụng</p>
+		<p class="instruction" >Lưu ý! Ae check tăng ca từ 19:05 - 19:15 (giờ về sẽ là 19:30). Check tăng ca sau 19:15 cúp điện sẽ không chấm được.</p>
 		<div class="log-display">
 			<ul id="data-list">
 			</ul>
@@ -40,15 +40,69 @@
 		<button id="btn_17" class="btn" onclick="sendName('btn_17')">NGUYỄN MAI PHƯƠNG</button><br>
 		<button id="btn_18" class="btn" onclick="sendName('btn_18')">NGUYỄN PHẠM NGỌC TUYẾT</button><br> -->
 
-		<button id="download" onclick="handleDownloadbtn()">Download Excel Report</button>
 
-
-		<button id="anh" >Tăng ca tháng này</button>
-		<button id="pre" >Tăng ca tháng trước</button>
+		
+		<div id="function-container">
+			<button id="pre" class="function">Tháng trước</button>
+			<button id="download" class="function" onclick="handleDownloadbtn()">Download</button>
+			<button id="anh" class="function">Tháng này</button>
+		</div>
 		<button id="btn_9" class="btn" onclick="sendName('btn_9')">
-			<p style="color: grey; font-size: 14px;">OT tap here!</p>
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
 			TRƯƠNG VĂN MINH
 		</button>
+		<!-- <button id="btn_15" class="btn" onclick="sendName('btn_15')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			PHẠM THỊ PHƯƠNG
+		</button>
+		<button id="btn_6" class="btn" onclick="sendName('btn_6')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN HOÀNG VIỆT
+		</button>
+		<button id="btn_7" class="btn" onclick="sendName('btn_7')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN THỊ HỒNG YẾN
+		</button>
+		<button id="btn_8" class="btn" onclick="sendName('btn_8')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			BÙI ĐÌNH HỒNG PHÚC
+		</button>
+		<button id="btn_9" class="btn" onclick="sendName('btn_9')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			TRƯƠNG VĂN MINH
+		</button>
+		<button id="btn_10" class="btn" onclick="sendName('btn_10')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN QUANG QUÍ
+		</button>
+		<button id="btn_11" class="btn" onclick="sendName('btn_11')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN THỊ DIỄM MY
+		</button>
+		<button id="btn_12" class="btn" onclick="sendName('btn_12')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			LÊ MINH THẮNG
+		</button>
+		<button id="btn_13" class="btn" onclick="sendName('btn_13')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			LÊ QUỐC TRUNG
+		</button>
+		<button id="btn_15" class="btn" onclick="sendName('btn_15')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			TRẦN VĂN LƯU
+		</button>
+		<button id="btn_16" class="btn" onclick="sendName('btn_16')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			LÊ HUỲNH ANH KHOA
+		</button>
+		<button id="btn_17" class="btn" onclick="sendName('btn_17')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN MAI PHƯƠNG
+		</button>
+		<button id="btn_18" class="btn" onclick="sendName('btn_18')">
+			<p style="color: rgb(30, 248, 22); font-size: 14px;">OT tap here!</p>
+			NGUYỄN PHẠM NGỌC TUYẾT
+		</button> -->
 
 
 
@@ -73,6 +127,7 @@
 		// alert("Check-in(out) successful.");
 
 	};
+	
 
 	function sendName(buttonId) {
 		const button = document.getElementById(buttonId);
